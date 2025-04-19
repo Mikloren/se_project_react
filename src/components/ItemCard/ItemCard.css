@@ -1,0 +1,32 @@
+@font-face {
+  font-family: "otf";
+  src: url("../../assets/fonts/CabinetGrotesk-Regular.otf");
+}
+
+.card {
+  width: 323px;
+  position: relative;
+  display: flex;
+  justify-content: center;
+}
+
+.card__name {
+  margin: 0;
+  position: absolute;
+  top: 15px;
+  font-family: otf, serif;
+  font-weight: 700;
+  font-size: 16px;
+  line-height: 20px;
+  letter-spacing: 0%;
+  color: #000;
+  opacity: 60%;
+  background-color: #ffffff;
+}
+
+.card__image {
+  width: 323px;
+  height: 326px;
+  border: 1px;
+  border-radius: 18px;
+}
