@@ -13,6 +13,16 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  visibility: hidden;
+  pointer-events: none;
+  opacity: 0;
+  transition: visibility 0.3s, opacity 0.5s linear;
+}
+
+.modal__opened {
+  visibility: visible;
+  pointer-events: all;
+  opacity: 1;
 }
 
 .modal__content {
@@ -48,6 +58,12 @@
   background-position: center;
   border: none;
   background-color: #0000004d;
+  transition: 0.4s ease-in;
+}
+
+.modal__close:hover {
+  cursor: pointer;
+  background-color: #000;
 }
 
 .modal__form {

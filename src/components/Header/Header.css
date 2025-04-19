@@ -36,6 +36,12 @@
   border: none;
   background: none;
   color: #000;
+  transition: 0.4s ease-in;
+}
+
+.header__add-clothes-btn:hover {
+  cursor: pointer;
+  color: #00000080;
 }
 
 .header__user-container {
