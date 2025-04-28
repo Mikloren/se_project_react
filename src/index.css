@@ -1,3 +1,2 @@
 @import url(./vendor/normalize.css);
-@import url(../src/components/Footer/Footer.css);
-@import url(../src/components/ItemCard/ItemCard.css);
+@import url(../src/vendor/fonts.css);

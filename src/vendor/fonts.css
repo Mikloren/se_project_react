@@ -1,0 +1,14 @@
+@font-face {
+  font-family: "otf";
+  src: url("../vendor/fonts/CabinetGrotesk-Regular.otf");
+}
+
+@font-face {
+  font-family: "otf";
+  src: url("../vendor/fonts/CabinetGrotesk-Medium.otf");
+}
+
+@font-face {
+  font-family: "otf";
+  src: url("../vendor/fonts/CabinetGrotesk-Bold.otf");
+}
