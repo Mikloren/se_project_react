@@ -30,3 +30,7 @@
   border: 1px;
   border-radius: 18px;
 }
+
+.card__image:hover {
+  cursor: pointer;
+}

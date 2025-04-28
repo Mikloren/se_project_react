@@ -57,20 +57,19 @@
   background: transparent url(../../assets/form-close.svg);
   background-position: center;
   border: none;
-  background-color: #0000004d;
+
   transition: 0.4s ease-in;
 }
 
 .modal__close:hover {
   cursor: pointer;
-  background-color: #000;
 }
 
 .modal__form {
   display: flex;
   flex-direction: column;
   width: 100%;
-  margin: 28px 0 0;
+  margin: 24px 0 0;
 
   font-family: otf, serif;
   font-weight: 700;
@@ -81,11 +80,11 @@
 }
 
 .modal__label {
-  margin: 0 0 20px;
+  margin: 0 0 24px;
 }
 
 .modal__input {
-  margin: 15px 0 0;
+  margin: 8px 0 0;
   padding: 0;
   display: block;
   border: none;
@@ -104,7 +103,7 @@
   padding: 0;
   display: flex;
   flex-direction: column;
-  margin: 0 0 28px;
+  margin: 0 0 32px;
   gap: 8px;
 }
 
@@ -129,8 +128,14 @@
   margin: 0;
   width: 124px;
   height: 36px;
-  background-color: #0000004d;
+  background-color: #000000;
   color: #fff;
   border: 1px;
   border-radius: 4px;
+  transition: 0.4s ease-in;
+}
+
+.modal__submit:hover {
+  background-color: #00000099;
+  cursor: pointer;
 }
