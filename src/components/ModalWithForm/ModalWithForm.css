@@ -1,8 +1,3 @@
-@font-face {
-  font-family: "otf";
-  src: url("../../assets/fonts/CabinetGrotesk-Regular.otf");
-}
-
 .modal {
   position: fixed;
   top: 0;
