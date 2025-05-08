@@ -1,0 +1,9 @@
+.profile {
+  display: flex;
+}
+
+.profile__sidebar {
+  width: 229px;
+  background-color: #f3f3f3;
+  padding: 0 116px 0 0;
+}

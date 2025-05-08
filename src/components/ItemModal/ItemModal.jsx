@@ -1,11 +1,11 @@
 import "./ItemModal.css";
 
-function ItemModal({ activeModal, handleCloseClick, card }) {
+function ItemModal({ activeModal, onClose, card, onClick }) {
   return (
     <div className={`modal ${activeModal === "preview" && "modal_opened"}`}>
-      <div className="modal__content modal__content_type_preview">
+      <div className=" modal__content_type_preview modal__content">
         <button
-          onClick={handleCloseClick}
+          onClick={onClose}
           type="button"
           className="modal__close modal__close_type_preview"
         ></button>
@@ -14,6 +14,13 @@ function ItemModal({ activeModal, handleCloseClick, card }) {
           <h2 className="modal__caption">{card.name}</h2>
           <p className="modal__weather">Weather: {card.weather}</p>
         </div>
+        <button
+          className="modal__delete-btn"
+          type="button"
+          onClick={() => onClick(card)}
+        >
+          Delete Item
+        </button>
       </div>
     </div>
   );

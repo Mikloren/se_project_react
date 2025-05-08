@@ -1,0 +1,26 @@
+.sidebar {
+  width: 229px;
+  background-color: #f3f3f3;
+  padding: 0;
+}
+
+.sidebar__user-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 16px;
+}
+
+.sidebar__avatar {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+}
+.sidebar__username {
+  text-wrap: nowrap;
+  font-family: "otf", sans-serif;
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 700;
+  margin: 0;
+}
