@@ -9,10 +9,14 @@ function ItemModal({ activeModal, onClose, card, onClick }) {
           type="button"
           className="modal__close modal__close_type_preview"
         ></button>
-        <img src={card.link} alt="clothing item" className="modal__image" />
+        <img
+          src={card?.imageUrl}
+          alt="clothing item"
+          className="modal__image"
+        />
         <div className="modal__foter">
-          <h2 className="modal__caption">{card.name}</h2>
-          <p className="modal__weather">Weather: {card.weather}</p>
+          <h2 className="modal__caption">{card?.name}</h2>
+          <p className="modal__weather">Weather: {card?.weather}</p>
         </div>
         <button
           className="modal__delete-btn"

@@ -13,7 +13,7 @@ import Profile from "../Profile/Profile";
 import { getWeather, filterWeatherData } from "../../utils/waetherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
-import { getItems, addItem, deleteItem } from "../../utils/api";
+import { getItems, addItems, deleteItem } from "../../utils/api";
 
 function App() {
   const [weatherData, setWaetherData] = useState({
@@ -40,9 +40,9 @@ function App() {
   };
 
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
-    addItem({ name, imageUrl, weather })
-      .then(() => {
-        setClothingItems([{ name, link: imageUrl, weather }, ...clothingItems]);
+    addItems({ name, imageUrl, weather })
+      .then((newItem) => {
+        setClothingItems((oldItem) => [newItem, ...oldItem]);
 
         onClose();
       })
@@ -57,23 +57,26 @@ function App() {
     setActiveModal("");
   };
 
-  const handleCardDelete = (data) => {
+  const handleCardDelete = (cardId) => {
     setActiveModal("delete-confirm");
-    setCardToDelete(data);
+    setCardToDelete(cardId);
   };
 
   const handleConfirmDelete = () => {
     if (!cardToDelete) return;
     deleteItem(cardToDelete._id)
       .then(() => {
-        setClothingItems((item) =>
-          item.filter((item) => item._id !== cardToDelete._id)
+        setClothingItems((oldItem) =>
+          oldItem.filter((item) => item._id !== cardToDelete._id)
         );
-        cardToDelete(null);
+        setSelectedCard(null);
         onClose();
       })
       .catch((err) => {
-        console.error(`Failed to delete card with ID ${cardToDelete}:`, err);
+        console.error(
+          `Failed to delete card with ID ${cardToDelete._id}:`,
+          err
+        );
       });
   };
 
