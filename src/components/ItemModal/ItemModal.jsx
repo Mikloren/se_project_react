@@ -1,4 +1,5 @@
 import "./ItemModal.css";
+import closeIcon from "../../assets/close.svg";
 
 function ItemModal({ activeModal, onClose, card, onClick }) {
   return (
@@ -8,7 +9,9 @@ function ItemModal({ activeModal, onClose, card, onClick }) {
           onClick={onClose}
           type="button"
           className="modal__close modal__close_type_preview"
-        ></button>
+        >
+          <img src={closeIcon} alt="Close modal" />
+        </button>
         <img
           src={card?.imageUrl}
           alt="clothing item"

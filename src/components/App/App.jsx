@@ -10,13 +10,13 @@ import Footer from "../Footer/Footer";
 import ItemModal from "../ItemModal/ItemModal";
 import DeleteModal from "../DeleteModal/DeleteModal";
 import Profile from "../Profile/Profile";
-import { getWeather, filterWeatherData } from "../../utils/waetherApi";
+import { getWeather, filterWeatherData } from "../../utils/weatherApi";
 import CurrentTemperatureUnitContext from "../../contexts/CurrentTemperatureUnitContext";
 import AddItemModal from "../AddItemModal/AddItemModal";
 import { getItems, addItems, deleteItem } from "../../utils/api";
 
 function App() {
-  const [weatherData, setWaetherData] = useState({
+  const [weatherData, setWeatherData] = useState({
     type: "",
     temp: { F: 999, C: 999 },
     city: "",
@@ -42,7 +42,7 @@ function App() {
   const handleAddItemModalSubmit = ({ name, imageUrl, weather }) => {
     addItems({ name, imageUrl, weather })
       .then((newItem) => {
-        setClothingItems((oldItem) => [newItem, ...oldItem]);
+        setClothingItems([newItem, ...clothingItems]);
 
         onClose();
       })
@@ -66,8 +66,8 @@ function App() {
     if (!cardToDelete) return;
     deleteItem(cardToDelete._id)
       .then(() => {
-        setClothingItems((oldItem) =>
-          oldItem.filter((item) => item._id !== cardToDelete._id)
+        setClothingItems((clothingItems) =>
+          clothingItems.filter((item) => item._id !== cardToDelete._id)
         );
         setSelectedCard(null);
         onClose();
@@ -84,7 +84,7 @@ function App() {
     getWeather(coordinates, APIkey)
       .then((data) => {
         const filterData = filterWeatherData(data);
-        setWaetherData(filterData);
+        setWeatherData(filterData);
       })
       .catch(console.error);
   }, []);
@@ -92,10 +92,26 @@ function App() {
   useEffect(() => {
     getItems()
       .then((data) => {
-        setClothingItems(data);
+        setClothingItems(data.reverse());
       })
       .catch(console.error);
   }, []);
+
+  useEffect(() => {
+    if (!activeModal) return;
+
+    const handleEscClose = (e) => {
+      if (e.key === "Escape") {
+        onClose();
+      }
+    };
+
+    document.addEventListener("keydown", handleEscClose);
+
+    return () => {
+      document.removeEventListener("keydown", handleEscClose);
+    };
+  }, [activeModal]);
 
   return (
     <CurrentTemperatureUnitContext.Provider

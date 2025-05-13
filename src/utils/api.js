@@ -27,8 +27,8 @@ const addItems = (inputData = {}) => {
   }).then(checkResponse);
 };
 
-const deleteItem = (item) => {
-  return fetch(`${baseUrl}/items/${item}`, {
+const deleteItem = (id) => {
+  return fetch(`${baseUrl}/items/${id}`, {
     method: "DELETE",
   }).then(checkResponse);
 };

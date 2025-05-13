@@ -1,5 +1,5 @@
 import "./DeleteModal.css";
-import closeIcon from "../../assets/form-close.svg";
+import closeIcon from "../../assets/close.svg";
 
 function DeleteModal({ isOpen, onClose, onCardDelete, itemName }) {
   return (

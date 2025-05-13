@@ -13,10 +13,11 @@
 }
 
 .modal__close_type_preview {
+  background: transparent;
+  border: none;
   position: absolute;
   top: 27px;
   right: 27px;
-  background: transparent url(../../assets/preview-x.svg);
 }
 
 .modal__close_type_preview:hover {

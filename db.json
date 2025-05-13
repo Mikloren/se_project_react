@@ -77,45 +77,6 @@
       "name": "T-Shirt",
       "weather": "hot",
       "imageUrl": "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/wtwr-project/T-Shirt.png?etag=44ed1963c44ab19cd2f5011522c5fc09"
-    },
-    {
-      "name": "Michael Lorenzo",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "weather": "hot",
-      "_id": 19
-    },
-    {
-      "name": "sfsf",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "weather": "warm",
-      "_id": 20
-    },
-    {
-      "name": "Michael Lorenzo",
-      "weather": "hot",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "_id": 21
-    },
-    {
-      "name": "sfsf",
-      "weather": "hot",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "_id": 22
-    },
-    {
-      "name": "sfsf",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "weather": "hot",
-      "_id": 23
-    },
-    {
-      "name": "sfsf",
-      "imageUrl": "https://bocogear.com/wp-content/uploads/2017/11/902202_RunHat_Black_Front.jpg",
-      "weather": "hot",
-      "_id": 24
-    },
-    {
-      "_id": 25
     }
   ]
 }
