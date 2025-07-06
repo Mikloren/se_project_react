@@ -1,11 +1,19 @@
 import "./Header.css";
-
 import ToggleSwitch from "../ToggleSwitch/ToggleSwitch";
 import logo from "../../assets/logo.svg";
-import avatar from "../../assets/avatar.svg";
-import { Link } from "react-router-dom";
 
-function Header({ handleAddClick, weatherData }) {
+import { Link } from "react-router-dom";
+import { useContext } from "react";
+import CurrentUserContext from "../../contexts/CurrentUserContext";
+
+function Header({
+  handleAddClick,
+  weatherData,
+  isLoggedIn,
+  handleRegisterClick,
+  handleLoginClick,
+}) {
+  const { currentUser } = useContext(CurrentUserContext);
   const currentDate = new Date().toLocaleString("default", {
     month: "long",
     day: "numeric",
@@ -13,27 +21,67 @@ function Header({ handleAddClick, weatherData }) {
 
   return (
     <header className="header">
-      <Link to="/">
-        <img src={logo} alt="logo" className="header__imgae" />
+      <Link to="/" className="header__link">
+        <img src={logo} alt="logo" className="header__image" />
       </Link>
+
       <p className="date-and-location">
         {currentDate}, {weatherData.city}
       </p>
+      <nav className="navigation">
+        <ul className="navigation__container">
+          <ToggleSwitch />
+          {isLoggedIn ? (
+            <>
+              <li>
+                <button
+                  className="header__add-clothes-btn"
+                  onClick={handleAddClick}
+                >
+                  + Add clothes
+                </button>
+              </li>
+              <li>
+                <Link to="/profile" className="header__link">
+                  <span className="header__username"> {currentUser.name}</span>
 
-      <ToggleSwitch />
-      <button
-        onClick={handleAddClick}
-        type="button"
-        className="header__add-clothes-btn"
-      >
-        + Add clothes
-      </button>
-      <Link to="/profile" className="header__link">
-        <div className="header__user-container">
-          <p className="header__username">Terrence Tegegne</p>
-          <img src={avatar} alt="Terrence Tegegne" className="header__avatar" />
-        </div>
-      </Link>
+                  {currentUser.avatar ? (
+                    <img
+                      src={currentUser.avatar}
+                      className="navigation__user"
+                      alt="avatar"
+                    />
+                  ) : (
+                    <span className="navigation__user navigation__user_type_none">
+                      {" "}
+                      {currentUser?.name?.toUpperCase().chartAt(0) || ""}
+                    </span>
+                  )}
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <button
+                  className="navigation__button nav__btn_type_login"
+                  onClick={handleLoginClick}
+                >
+                  Log in
+                </button>
+              </li>
+              <li>
+                <button
+                  className="navigation__button"
+                  onClick={handleRegisterClick}
+                >
+                  Sign up
+                </button>
+              </li>
+            </>
+          )}
+        </ul>
+      </nav>
     </header>
   );
 }

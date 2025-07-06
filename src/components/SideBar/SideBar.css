@@ -24,3 +24,23 @@
   font-weight: 700;
   margin: 0;
 }
+
+.sidebar__buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 0;
+  padding: 0;
+  margin-top: 24px;
+}
+
+.sidebar__button {
+  margin: 0;
+  padding: 0;
+  font-family: "otf", sans-serif;
+  font-size: 20px;
+  line-height: 100%;
+  font-weight: 700;
+  border: none;
+  text-align: left;
+}

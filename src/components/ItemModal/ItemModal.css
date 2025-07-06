@@ -21,7 +21,7 @@
 }
 
 .modal__image {
-  height: 498px;
+  min-height: 498px;
   width: 498px;
   border-top-right-radius: 16px;
   border-top-left-radius: 16px;
@@ -68,9 +68,14 @@
   letter-spacing: 0;
   font-family: "otf", serif;
   transition: 0.7s ease-in;
+  visibility: visible;
 }
 
 .modal__delete-btn:hover {
   color: #ff0005;
   cursor: pointer;
+}
+
+.modal__delete-btn_hidden {
+  visibility: hidden;
 }

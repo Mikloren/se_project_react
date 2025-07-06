@@ -1,36 +1,112 @@
-const baseUrl = "http://localhost:3001";
+export const baseUrl = "http://localhost:3001";
 
-const checkResponse = (res) => {
+export const checkResponse = (res) => {
   if (res.ok) {
     return res.json();
   }
-  return Promise.reject(new Error(`Error: ${res.status}`));
+  return Promise.reject(`Error: ${res.status}`);
 };
 
-const getItems = () => {
-  return fetch(`${baseUrl}/items`, {
-    method: "GET",
-  }).then(checkResponse);
+export const request = (url, options) => {
+  return fetch(url, options).then(checkResponse);
 };
 
-const addItems = (inputData = {}) => {
-  return fetch(`${baseUrl}/items`, {
+export const getItem = () => {
+  return request(`${baseUrl}/items`);
+};
+
+export const addItem = ({ name, weather, imageUrl, token }) => {
+  return request(`${baseUrl}/items`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name,
+      weather,
+      imageUrl,
+    }),
+  });
+};
+export const deleteItem = (id, token) => {
+  return request(`${baseUrl}/items/${id}`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const addCardLike = (id, token) => {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const removeCardLike = (id, token) => {
+  return request(`${baseUrl}/items/${id}/likes`, {
+    method: "DELETE",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const register = ({ email, password, name, avatar }) => {
+  return request(`${baseUrl}/signup`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      name: inputData.name,
-      imageUrl: inputData.imageUrl,
-      weather: inputData.weather,
+      email,
+      password,
+      name,
+      avatar,
     }),
-  }).then(checkResponse);
+  });
 };
 
-const deleteItem = (id) => {
-  return fetch(`${baseUrl}/items/${id}`, {
-    method: "DELETE",
-  }).then(checkResponse);
+export const login = ({ email, password }) => {
+  return request(`${baseUrl}/signin`, {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      email,
+      password,
+    }),
+  });
 };
 
-export { getItems, addItems, deleteItem };
+export const checkToken = (token) => {
+  return request(`${baseUrl}/users/me`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export const updateProfile = ({ name, avatar, token }) => {
+  return request(`${baseUrl}/users/me`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${token}`,
+    },
+    body: JSON.stringify({
+      name,
+      avatar,
+    }),
+  });
+};

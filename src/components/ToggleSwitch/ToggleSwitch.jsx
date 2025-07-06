@@ -12,6 +12,7 @@ function ToggleSwitch() {
       <input
         onChange={handleToggleSwitchChange}
         type="checkbox"
+        id="toggle"
         className="toggle-switch__checkbox"
       />
       <span className="toggle-switch__circle"></span>

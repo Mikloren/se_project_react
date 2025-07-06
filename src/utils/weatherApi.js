@@ -1,14 +1,4 @@
-export const getWeather = ({ longitude, latitude }, APIkey) => {
-  return fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
-  ).then((res) => {
-    if (res.ok) {
-      return res.json();
-    } else {
-      return Promise.reject("Error: ${res.status}");
-    }
-  });
-};
+import { checkResponse } from "./api";
 
 export const filterWeatherData = (data) => {
   const result = {};
@@ -24,7 +14,16 @@ export const filterWeatherData = (data) => {
   return result;
 };
 
-const isDay = ({ sunrise, sunset }, now) => {
+export const getWeather = ({ longitude, latitude }, APIkey) => {
+  return fetch(
+    `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&units=imperial&appid=${APIkey}`
+  )
+    .then(checkResponse)
+    .then((data) => filterWeatherData(data));
+};
+
+const isDay = ({ sunrise, sunset }, currentTime) => {
+  const now = currentTime;
   return sunrise * 1000 < now && now < sunset * 1000;
 };
 

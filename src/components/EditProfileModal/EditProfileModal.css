@@ -1,0 +1,17 @@
+.modal__smt {
+  border-radius: 4px;
+  gap: 8px;
+  padding: 8px 16px;
+  width: 120px;
+  color: #ffffff;
+  background-color: #000000;
+  border: none;
+}
+
+.modal__smt:disabled {
+  background-color: #0000004d;
+}
+
+.modal__smt:hover {
+  background-color: #00000099;
+}

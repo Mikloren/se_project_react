@@ -5,18 +5,50 @@
   justify-content: center;
 }
 
-.card__name {
-  margin: 0;
+.card__content {
+  height: 24px;
+  width: 100px;
   position: absolute;
   top: 15px;
-  font-family: "otf", serif;
+  display: flex;
+}
+
+.card__name {
+  position: relative;
+  margin: 0;
+  margin-right: 10px;
+  padding: 2px 12px;
+  font-family: "otf", sans-serif;
   font-weight: 700;
   font-size: 16px;
   line-height: 20px;
-  letter-spacing: 0%;
-  color: #000;
-  opacity: 60%;
-  background-color: #ffffff;
+  color: rgba(0, 0, 0, 0.6);
+  background-color: white;
+  border-radius: 4px;
+  max-width: 200px;
+}
+
+.card__like-button {
+  position: relative;
+  top: 5px;
+  width: 18px;
+  height: 15px;
+  background: transparent url("../../assets/inactive-like-button.svg") center
+    no-repeat;
+  background-size: 18px 15px;
+  border: 2px;
+  padding: 0;
+  transition: 0.3s;
+}
+
+.card__like-button:hover {
+  opacity: 0.5;
+  cursor: pointer;
+}
+
+.card__like-button_is-active {
+  background: transparent url("../../assets/active-like-button.svg") center
+    no-repeat;
 }
 
 .card__image {
