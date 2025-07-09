@@ -3,7 +3,7 @@ import { useContext } from "react";
 import CurrentUserContext from "../../contexts/CurrentUserContext";
 
 function ItemCard({ item, onCardClick, onCardLike }) {
-  const currentUser = useContext(CurrentUserContext);
+  const { currentUser } = useContext(CurrentUserContext);
   const token = localStorage.getItem("jwt");
 
   const handleCardClick = () => {
@@ -27,7 +27,7 @@ function ItemCard({ item, onCardClick, onCardLike }) {
       />
       <div className="card__content">
         <h2 className="card__name">{item.name}</h2>
-        {token && (
+        {currentUser && (
           <button
             type="button"
             className={`card__like-button ${

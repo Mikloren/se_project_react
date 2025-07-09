@@ -47,6 +47,8 @@
 }
 
 .header__username {
+  position: relative;
+  bottom: 7px;
   margin: 0;
   font-family: otf, serif;
   font-weight: 700;
@@ -123,6 +125,8 @@
 }
 
 .navigation__user {
+  position: relative;
+  top: 5px;
   margin: -8px 0 0 12px;
   padding: 0;
   width: 40px;

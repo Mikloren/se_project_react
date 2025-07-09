@@ -47,8 +47,16 @@
 }
 
 .card__like-button_is-active {
+  position: relative;
+  top: 5px;
+  width: 18px;
+  height: 15px;
   background: transparent url("../../assets/active-like-button.svg") center
     no-repeat;
+  background-size: 18px 15px;
+  border: 2px;
+  padding: 0;
+  transition: 0.3s;
 }
 
 .card__image {

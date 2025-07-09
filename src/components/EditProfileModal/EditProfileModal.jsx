@@ -15,7 +15,7 @@ function EditProfileModal({ onClose, isOpen, onEditProfileSubmit }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    onEditProfileSubmit({ name, avatarUrl });
+    onEditProfileSubmit({ name, avatar: avatarUrl });
   };
 
   return (
@@ -54,13 +54,6 @@ function EditProfileModal({ onClose, isOpen, onEditProfileSubmit }) {
           required
         />
       </label>
-      <button
-        type="submit"
-        className="modal__smt"
-        disabled={!name || !avatarUrl}
-      >
-        Save Changes
-      </button>
     </ModalWithForm>
   );
 }

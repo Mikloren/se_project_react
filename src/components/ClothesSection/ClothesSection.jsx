@@ -11,8 +11,9 @@ function ClothesSection({
 }) {
   const { currentUser } = useContext(CurrentUserContext);
 
-  const isOwn = currentUser ? clothingItems.owner === currentUser._id : false;
-
+  const userItems = currentUser
+    ? clothingItems.filter((item) => item.owner === currentUser._id)
+    : [];
   return (
     <div className="clothes-section">
       <div className="clothes-section__header">
@@ -26,18 +27,17 @@ function ClothesSection({
           + Add New
         </button>
       </div>
-      {isOwn && (
-        <ul className="clothes-section__items">
-          {clothingItems.map((filteredCard, index) => (
-            <ItemCard
-              key={filteredCard._id || `item-${index}`}
-              item={filteredCard}
-              onCardClick={onCardClick}
-              onCardLike={onCardLike}
-            />
-          ))}
-        </ul>
-      )}
+
+      <ul className="clothes-section__items">
+        {userItems.map((filteredCard, index) => (
+          <ItemCard
+            key={filteredCard._id || `item-${index}`}
+            item={filteredCard}
+            onCardClick={onCardClick}
+            onCardLike={onCardLike}
+          />
+        ))}
+      </ul>
     </div>
   );
 }
